@@ -1,1 +1,31 @@
-
+{
+    "vscode-php-snippet": {
+        "prefix": "wpdebug",
+        "body": [
+            "if (!function_exists(\"wpdebug\")) {",
+            "\tfunction pdebug($$msg, $$js_console = false)",
+            "\t{",
+            "\t\t$$upload_dir = wp_upload_dir();",
+            "\t\t$$log_file_prefix = 'wp-custom';",
+            "\t\t$$log_file = $$log_file_prefix.'.log';",
+            "",
+            "\t\tif (wp_get_environment_type() !== \"production\") {",
+            "\t\t\tif (is_array($$msg) || is_object($$msg)) {",
+            "\t\t\t\t$$message_with_meta =  date('Y-m-d H:i:s') . '| ' . print_r($$msg, true)  . \"\\n\";",
+            "\t\t\t} else {",
+            "\t\t\t\t$$message_with_meta = date('Y-m-d H:i:s') . '| ' . $$msg  . \"\\n\";",
+            "\t\t\t}",
+            "\t\t\t// This is logged under the uploads directory",
+            "\t\t\terror_log($$message_with_meta, 3, $$upload_dir['basedir'] . '/' .  $$log_file);",
+            "\t\t\t// For JavaScript console",
+            "\t\t\tif ($$js_console) {",
+            "\t\t\t\t$$js_code = 'console.log(' . json_encode($$msg, JSON_HEX_TAG) . ');';",
+            "\t\t\t\techo \"<script>\" . $$js_code . \"</script>\";",
+            "\t\t\t}",
+            "\t\t}",
+            "\t}",
+            "}"
+        ],
+        "description": "wpdebug"
+    }
+}
