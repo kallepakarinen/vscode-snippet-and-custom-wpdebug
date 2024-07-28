@@ -36,3 +36,4 @@ if (!function_exists("wpdebug")) {
 }
 
 wpdebug('lokitetaan tämä teksti');
+wpdebug('lokitetaan tämä teksti myös JavaScript consoleen', true);
