@@ -1,4 +1,5 @@
 # vscode-snippet-and-custom-wpdebug
+Mahdollistaa WordPressissä lokitukset omaan tiedostoon
 
 ## Asennus
 1. Avaa Visual Studio Code
